@@ -11,9 +11,9 @@ declare global {
       pay: (
         token: string,
         callbacks: {
-          onSuccess: (result: any) => void;
-          onPending: (result: any) => void;
-          onError: (result: any) => void;
+          onSuccess: (result: unknown ) => void;
+          onPending: (result: unknown ) => void;
+          onError: (result: unknown) => void;
           onClose: () => void;
         }
       ) => void;
@@ -98,15 +98,15 @@ export default function Home() {
       if (data.token) {
         // Panggil Midtrans Snap untuk memproses pembayaran
         window.snap.pay(data.token, {
-          onSuccess: (result: any) => {
+          onSuccess: (result: unknown ) => {
             alert("Pembayaran berhasil!");
             console.log("Success:", result);
           },
-          onPending: (result: any) => {
+          onPending: (result: unknown ) => {
             alert("Pembayaran pending!");
             console.log("Pending:", result);
           },
-          onError: (result: any) => {
+          onError: (result: unknown ) => {
             alert("Pembayaran gagal!");
             console.log("Error:", result);
           },
